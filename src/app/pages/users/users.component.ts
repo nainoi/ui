@@ -93,13 +93,14 @@ export class UsersComponent implements OnInit {
   searchUsersbyEmail(input) {
     const t = new Date().getTime();
     if ((t - this.searchFreq) > defFreq) {
+      this.pageFilters.offset = 0;
       this.getUsers(input);
       this.searchFreq = t;
     }
   }
 
   onClickSave() {
-    this.fsService.exportToCsv('mfx_users.csv', this.page.rows);
+    this.fsService.exportToJson('mfx_users.txt', this.page.rows);
   }
 
   onFileSelected(files: FileList) {

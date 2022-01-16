@@ -97,6 +97,7 @@ export interface MsgFilters {
   publisher?: string;
   subtopic?: string;
   name?: string;
+  format?: string;
   v?: string;
   vs?: string;
   vd?: string;
@@ -110,14 +111,9 @@ export interface ReaderUrl {
   suffix?: string;
 }
 
-export interface Message {
-  value: number;
-  time: number;
-}
-
 export interface Dataset {
   label?: string;
-  messages?: Message[];
+  messages?: MainfluxMsg[];
 }
 
 export interface TableConfig {
